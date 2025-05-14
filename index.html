@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Consulting and Counselling (SCC)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="jdufnp1u.jpg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo-group">
+        <img src="jdufnp1u.jpg" alt="SCC Logo" class="logo-img" />
+        <a href="#" class="logo">GTC-SCC</a>
+      </div>
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="#express-form">Express Yourself</a></li>
+        <li><a href="#report-form">Report</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Your Voice Matters</h1>
+      <p>Speak up, share, and be heard. We’re here for you.</p>
+      <div class="hero-buttons">
+        <a href="#report-form" class="btn">Report Now</a>
+        <a href="#express-form" class="btn-secondary">Express Yourself</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="card">
+      <h2>About SCC</h2>
+      <p>SCC is a safe space where students can speak their minds, share concerns, and report bullying confidentially. We believe every voice deserves to be heard and respected.</p>
+    </section>
+
+    <section class="card">
+      <h2>Why Speak Up?</h2>
+      <div class="reasons">
+        <div class="reason">
+          <h3>Safe & Private</h3>
+          <p>Your identity is protected. Share freely without fear.</p>
+        </div>
+        <div class="reason">
+          <h3>Improve School Environment</h3>
+          <p>Your voice helps build a safer, more inclusive school.</p>
+        </div>
+        <div class="reason">
+          <h3>Direct Connection</h3>
+          <p>Your report goes straight to the school leadership.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="express-form" class="card">
+      <h2>Express Yourself</h2>
+      <form>
+        <label for="name">Your Name (optional):</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="expression">What would you like to share?</label>
+        <textarea id="expression" name="expression" rows="5"></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+
+    <section id="report-form" class="card">
+      <h2>Report Bullying</h2>
+      <form>
+        <label for="report-name">Your Name (optional):</label>
+        <input type="text" id="report-name" name="report-name" />
+
+        <label for="incident">Describe the incident:</label>
+        <textarea id="incident" name="incident" rows="5"></textarea>
+
+        <label for="report-to">Who was involved (if known)?</label>
+        <input type="text" id="report-to" name="report-to" />
+
+        <button type="submit" class="btn">Send Report</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Contact the Principal</h2>
+      <p>You can also reach out directly to the principal via this form.</p>
+      <form>
+        <label for="principal-message">Your Message:</label>
+        <textarea id="principal-message" name="principal-message" rows="4"></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Student Consulting and Counselling (SCC). All rights reserved.</p>
+  </footer>
+</body>
+</html>

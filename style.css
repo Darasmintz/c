@@ -1,0 +1,423 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #c3c6c9;
+  color: #333;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 0.8rem 1.5rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Hero Section */
+
+.about-hero {
+  background: url('a.jpg') no-repeat center center/cover;
+  height: 80vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.about-text {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.about-text h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-text .subtitle {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+/* Dropdown Section */
+
+.about-dropdown-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.dropdown-btn {
+  background-color: #6a5acd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.dropdown-content {
+  margin-top: 20px;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dropdown-content.active {
+  display: flex;
+}
+
+.dropdown-box {
+  background-color: #f0f0ff;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.hero {
+  background: url('hime.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.hero .overlay {
+  background: rgba(56, 56, 56, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #6c63ff;
+}
+
+.btn-secondary {
+  background-color: #888;
+}
+
+.main-content {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  color: #6c63ff;
+  margin-bottom: 20px;
+}
+
+.reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.reason {
+  flex: 1 1 30%;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+/* NAVIGATION STYLES */
+.navbar {
+  background-color: #6c63ff;
+  padding: 10px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nav-links li a:hover {
+  opacity: 0.8;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  border: 2px solid #6a5acd; /* Optional: violet border */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #6c63ff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px 15px;
+  }
+}
+
+/* Responsive styles for forms, cards, hero, and layout */
+@media (max-width: 900px) {
+  .main-content {
+    padding: 20px 10px;
+    max-width: 100%;
+  }
+  .card {
+    padding: 20px;
+  }
+  .reasons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 10px 2px;
+    max-width: 600px;
+    margin: auto;
+  }
+  .about-hero {
+    height: auto;
+    padding: 1rem;
+    justify-content: center;
+  }
+  .about-text {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  .hero {
+    padding: 60px 10px;
+  }
+  .hero .overlay {
+    padding: 20px;
+  }
+  .card {
+    padding: 12px;
+    margin-bottom: 18px;
+  }
+  form label, form input, form textarea, form button {
+    font-size: 1rem;
+  }
+  .dropdown-box {
+    max-width: 100%;
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+  }
+  .logo {
+    font-size: 1.1rem;
+  }
+  .navbar {
+    padding: 8px 8px;
+  }
+  .nav-links {
+    width: 100%;
+    right: 0;
+    top: 50px;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .card h2 {
+    font-size: 1.2rem;
+  }
+  .dropdown-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+  form input, form textarea {
+    font-size: 0.95rem;
+  }
+}

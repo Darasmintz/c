@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTC - Contact School Authority - SCC</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="jdufnp1u.jpg">
+</head>
+<body>
+ <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo-group">
+        <img src="jdufnp1u.jpg" alt="SCC Logo" class="logo-img" />
+        <a href="#" class="logo">GTC-SCC</a>
+      </div>
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#express-form">Express Yourself</a></li>
+        <li><a href="#report-form">Report</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+  <header class="hero">
+    <div class="overlay">
+      <h1>Contact School Authority</h1>
+      <p>Reach out directly to the school authority for support or to report an incident.</p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="card">
+      <h2>Contact Form</h2>
+      <form id="main-contact-form">
+        <label for="college">Select College:</label>
+        <select id="college" name="college" required>
+          <option value="">-- Select College --</option>
+          <option value="GTC Agidingbi">GTC Agidingbi</option>
+          <option value="GTC Epe">GTC Epe</option>
+          <option value="GTC Ikorodu">GTC Ikorodu</option>
+          <option value="GTC Ikotun">GTC Ikotun</option>
+          <option value="GTC Ado-Soba">GTC Ado-Soba</option>
+        </select>
+
+        <label for="contact-person">Contact:</label>
+        <select id="contact-person" name="contact-person" required>
+          <option value="">-- Select Contact --</option>
+          <option value="principal">School Principal</option>
+          <option value="counsellor">School Counsellor</option>
+        </select>
+
+        <label for="name">Your Name (optional):</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <!-- Principal Form -->
+      <form id="principal-form" style="display:none; margin-top:2rem;">
+        <h3>Contact School Principal</h3>
+        <label for="principal-name">Your Name (optional):</label>
+        <input type="text" id="principal-name" name="principal-name" />
+
+        <label for="principal-message">Your Message:</label>
+        <textarea id="principal-message" name="principal-message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Send to Principal</button>
+      </form>
+
+      <!-- Counsellor Form -->
+      <form id="counsellor-form" style="display:none; margin-top:2rem;">
+        <h3>Contact School Counsellor</h3>
+        <label for="counsellor-name">Your Name (optional):</label>
+        <input type="text" id="counsellor-name" name="counsellor-name" />
+
+        <label for="counsellor-message">Your Message:</label>
+        <textarea id="counsellor-message" name="counsellor-message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Send to Counsellor</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    // Show the correct form based on dropdown selection
+    const contactPerson = document.getElementById('contact-person');
+    const mainForm = document.getElementById('main-contact-form');
+    const principalForm = document.getElementById('principal-form');
+    const counsellorForm = document.getElementById('counsellor-form');
+
+    contactPerson.addEventListener('change', function() {
+      if (this.value === 'principal') {
+        mainForm.style.display = 'none';
+        principalForm.style.display = 'block';
+        counsellorForm.style.display = 'none';
+      } else if (this.value === 'counsellor') {
+        mainForm.style.display = 'none';
+        principalForm.style.display = 'none';
+        counsellorForm.style.display = 'block';
+      } else {
+        mainForm.style.display = 'block';
+        principalForm.style.display = 'none';
+        counsellorForm.style.display = 'none';
+      }
+    });
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Student Consulting and Counselling (SCC). All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GTC - Student Consulting and Counselling (SCC)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="jdufnp1u.jpg">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo-group"></a>
+        <img src="jdufnp1u.jpg" alt="SCC Logo" class="logo-img" />
+        <a href="#" class="logo">GTC-SSC</a></div>
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="nav-links" id="nav-links"> Yourself</a></li>
+        <li><a href="index.html">Home</a></li></li>
+        <li><a href="cse.html">Sexuality Education</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="about-hero">
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p class="subtitle">We empower students to express themselves, report concerns, and access vital sexuality education.</p>
+      <p>Our platform provides a safe space for students to share their thoughts, seek guidance, and receive professional support. We are dedicated to fostering emotional well-being, social growth, and inclusive education for all students.</p>
+    </div>
+  </section>
+
+  <section class="about-dropdown-section">
+    <button id="toggle-dropdown" class="dropdown-btn" style="display:none;">Learn More ⌄</button>
+    <div class="dropdown-content" style="display:block; margin-top: 20px;">
+      <div class="dropdown-box" id="vision-box">
+        <h3>Our Vision</h3>
+        <p>To become a leading platform for empowering students through comprehensive guidance and support.</p>
+      </div>
+      <div class="dropdown-box" id="mission-box">
+        <h3>Our Mission</h3>
+        <p>To provide accessible, inclusive, and professional consulting and counselling services to students of all backgrounds.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+  <script>
+    // Show/hide only Vision and Mission when Learn More is clicked
+    document.getElementById('toggle-dropdown').addEventListener('click', function() {
+      const dropdown = document.getElementById('dropdown-content');
+      dropdown.classList.toggle('hidden');
+    });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+  <footer>
+    <div>
+      <p>&copy; 2025 SCC. All rights reserved.</p>
+      <p>Contact us: <a href="mailto:info@scc.com" style="color: #e0e0f8;">info@scc.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
