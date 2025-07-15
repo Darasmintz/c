@@ -102,34 +102,213 @@
         <button type="submit" class="btn">Send to Counsellor</button>
       </form>
     </section>
+ <!-- Remove or comment out this Qlink card section inside <main> -->
+    <!-- <section class="card" id="qlink">
+      <div class="qlink-header">
+        <div class="qlink-logo-container">
+          <img src="ai_logo.jpg" alt="Qlink Logo" class="qlink-logo" />
+        </div>
+        <h2>Qlink: Ask About This Website</h2>
+      </div>
+      <div class="qlink-suggestions">
+        <span class="qlink-suggestion">Hi</span>
+        <span class="qlink-suggestion">What is SCC?</span>
+        <span class="qlink-suggestion">What is SCC all about?</span>
+        <span class="qlink-suggestion">How do I report bullying?</span>
+        <span class="qlink-suggestion">How do I contact the principal?</span>
+        <span class="qlink-suggestion">How do I text the principal?</span>
+        <span class="qlink-suggestion">How do I text the counselor?</span>
+        <span class="qlink-suggestion">Is my information confidential?</span>
+        <span class="qlink-suggestion">Bye</span>
+        <span class="qlink-suggestion">Okay</span>
+      </div>
+      <form id="qlink-form">
+        <label for="qlink-question">Ask your question:</label>
+        <input type="text" id="qlink-question" name="qlink-question" placeholder="Type your question here..." required />
+        <button type="submit" class="btn">Ask</button>
+      </form>
+      <div id="qlink-response" class="qlink-response"></div>
+    </section> -->
+
+    <!-- Qlink Chatbot Script -->
+    <script>
+      document.getElementById('qlink-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const question = document.getElementById('qlink-question').value.trim().toLowerCase();
+        const responseDiv = document.getElementById('qlink-response');
+
+        // Qlink responses
+        const responses = {
+          "hi": "Hello! Welcome to SCC. How can I help you with the website?",
+          "hello": "Hi there! Ask me anything about this website.",
+          "what is this website": "This website is for Student Consulting and Counselling (SCC). You can report issues, express yourself, or contact the principal.",
+          "what is scc": "SCC stands for Student Consulting and Counselling. It is a platform for students to express themselves, report concerns, and access support.",
+          "what is scc all about": "SCC is a safe space for students to share their thoughts, report issues, and get guidance or counselling from school authorities.",
+          "how do i report bullying": "Go to the <a href='#report-form'>Report Bullying</a> section and fill out the form. Your report will be sent to the school authority.",
+          "how do i contact the principal": "Use the <a href='#contact-principal'>Contact the Principal</a> section below or email <a href='mailto:gtclagos@gmail.com'>gtclagos@gmail.com</a>. You can also call <a href='tel:07065607532'>07065607532</a>.",
+          "how do i text the principal": "Go to the <a href='#contact-principal'>Contact the Principal</a> section and fill out the form to send your message directly.",
+          "how do i text the counselor": "Go to the <a href='#report-form'>Report Form</a> section and select the counselor as your contact. Your message will be sent directly.",
+          "is my information confidential": "Yes, all information you provide is kept confidential and only shared with authorized school personnel.",
+          "bye": "Goodbye! If you have more questions, just ask.",
+          "okay": "Alright! Let me know if you have any other questions about SCC or the website."
+        };
+
+        let found = false;
+        for (const key in responses) {
+          if (question.includes(key)) {
+            responseDiv.innerHTML = responses[key];
+            found = true;
+            // Scroll to section if it's a direct navigation question
+            if (
+              key === "how do i report bullying" ||
+              key === "how do i text the counselor"
+            ) {
+              const reportForm = document.getElementById('report-form');
+              if (reportForm) reportForm.scrollIntoView({ behavior: 'smooth' });
+            }
+            if (
+              key === "how do i contact the principal" ||
+              key === "how do i text the principal"
+            ) {
+              const principalSection = document.getElementById('contact-principal');
+              if (principalSection) principalSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            break;
+          }
+        }
+        if (!found) {
+          responseDiv.textContent = "Thank you for your question. Our AI assistant will respond soon or you can contact us at gtclagos@gmail.com.";
+        }
+        this.reset();
+      });
+
+      // When a suggestion is clicked, fill the input box
+      document.querySelectorAll('.qlink-suggestion').forEach(function(item) {
+        item.addEventListener('click', function() {
+          document.getElementById('qlink-question').value = this.textContent;
+          document.getElementById('qlink-question').focus();
+        });
+      });
+    </script>
   </main>
-
-  <script>
-    // Show the correct form based on dropdown selection
-    const contactPerson = document.getElementById('contact-person');
-    const mainForm = document.getElementById('main-contact-form');
-    const principalForm = document.getElementById('principal-form');
-    const counsellorForm = document.getElementById('counsellor-form');
-
-    contactPerson.addEventListener('change', function() {
-      if (this.value === 'principal') {
-        mainForm.style.display = 'none';
-        principalForm.style.display = 'block';
-        counsellorForm.style.display = 'none';
-      } else if (this.value === 'counsellor') {
-        mainForm.style.display = 'none';
-        principalForm.style.display = 'none';
-        counsellorForm.style.display = 'block';
-      } else {
-        mainForm.style.display = 'block';
-        principalForm.style.display = 'none';
-        counsellorForm.style.display = 'none';
-      }
-    });
-  </script>
 
   <footer>
     <p>&copy; 2025 Student Consulting and Counselling (SCC). All rights reserved.</p>
   </footer>
+
+  <!-- Remove the floating logo image and use a floating Qlink button instead -->
+  <!-- <img src="ai_logo.jpg" alt="Qlink Logo" id="qlink-float-logo" class="qlink-logo" style="position:fixed; bottom:32px; right:32px; z-index:1000; cursor:pointer;" title="Ask Qlink" /> -->
+
+  <!-- Replace it with this Qlink button: -->
+  <button id="qlink-float-btn" style="position:fixed; bottom:32px; right:32px; z-index:1000; cursor:pointer; background:#6a5acd; color:#fff; border:none; border-radius:50px; padding:16px 28px; font-size:1.1rem; box-shadow:0 0 12px #00cfff88;">Qlink</button>
+
+  <!-- Qlink Modal (hidden by default) -->
+  <div id="qlink-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#0008; z-index:2000; align-items:center; justify-content:center;">
+    <div style="background:#fff; padding:24px 18px; border-radius:12px; min-width:300px; max-width:90vw; box-shadow:0 4px 24px #0003; position:relative;">
+      <button id="qlink-close" style="position:absolute; top:8px; right:12px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
+      <h4 style="margin-top:0;">Ask Qlink</h4>
+      <div class="qlink-suggestions" style="margin-bottom:10px;">
+        <span class="qlink-suggestion">Hi</span>
+        <span class="qlink-suggestion">What is SCC?</span>
+        <span class="qlink-suggestion">What is SCC all about?</span>
+        <span class="qlink-suggestion">How do I report bullying?</span>
+        <span class="qlink-suggestion">How do I contact the principal?</span>
+        <span class="qlink-suggestion">How do I text the principal?</span>
+        <span class="qlink-suggestion">How do I text the counselor?</span>
+        <span class="qlink-suggestion">Is my information confidential?</span>
+        <span class="qlink-suggestion">Bye</span>
+        <span class="qlink-suggestion">Okay</span>
+      </div>
+      <form id="qlink-form">
+        <input type="text" id="qlink-question" placeholder="Type your question..." style="width:100%;padding:8px;margin-bottom:8px;" required />
+        <button type="submit" class="btn">Ask</button>
+      </form>
+      <div id="qlink-response" style="margin-top:10px; min-height:24px; color:#333;"></div>
+    </div>
+  </div>
+
+  <!-- Add to your style.css or <style> in <head> if not already present -->
+  <style>
+    .qlink-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #6a5acd;
+      box-shadow: 0 0 12px #00cfff88;
+    }
+    .qlink-suggestions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .qlink-suggestion {
+      background: #e0e0f8;
+      color: #333;
+      border-radius: 16px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 0.98rem;
+      transition: background 0.2s;
+      border: 1px solid #bdbdf7;
+    }
+    .qlink-suggestion:hover {
+      background: #d1c4e9;
+    }
+  </style>
+
+  <!-- Qlink Modal Script -->
+  <script>
+    // Show modal on Qlink button click
+    document.getElementById('qlink-float-btn').onclick = function() {
+      document.getElementById('qlink-modal').style.display = 'flex';
+    };
+    // Hide modal on close
+    document.getElementById('qlink-close').onclick = function() {
+      document.getElementById('qlink-modal').style.display = 'none';
+      document.getElementById('qlink-response').textContent = '';
+      document.getElementById('qlink-form').reset();
+    };
+    // Qlink chatbot logic
+    document.getElementById('qlink-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const question = document.getElementById('qlink-question').value.trim().toLowerCase();
+      const responseDiv = document.getElementById('qlink-response');
+      const responses = {
+        "hi": "Hello! Welcome to SCC. How can I help you with the website?",
+        "hello": "Hi there! Ask me anything about this website.",
+        "what is this website": "This website is for Student Consulting and Counselling (SCC). You can report issues, express yourself, or contact the principal.",
+        "what is scc": "SCC stands for Student Consulting and Counselling. It is a platform for students to express themselves, report concerns, and access support.",
+        "what is scc all about": "SCC is a safe space for students to share their thoughts, report issues, and get guidance or counselling from school authorities.",
+        "how do i report bullying": "Go to the Report Bullying section and fill out the form. Your report will be sent to the school authority.",
+        "how do i contact the principal": "Use the Contact the Principal section below or email gtclagos@gmail.com. You can also call 07065607532.",
+        "how do i text the principal": "Go to the Contact page, select your college and choose 'School Principal' as contact. Fill the form to send your message directly.",
+        "how do i text the counselor": "Go to the Contact page, select your college and choose 'School Counsellor' as contact. Fill the form to send your message directly.",
+        "is my information confidential": "Yes, all information you provide is kept confidential and only shared with authorized school personnel.",
+        "bye": "Goodbye! If you have more questions, just ask.",
+        "okay": "Alright! Let me know if you have any other questions about SCC or the website."
+      };
+      let found = false;
+      for (const key in responses) {
+        if (question.includes(key)) {
+          responseDiv.textContent = responses[key];
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        responseDiv.textContent = "Thank you for your question. Our AI assistant will respond soon or you can contact us at gtclagos@gmail.com.";
+      }
+      this.reset();
+    });
+    // When a suggestion is clicked, fill the input box
+    document.querySelectorAll('.qlink-suggestion').forEach(function(item) {
+      item.addEventListener('click', function() {
+        document.getElementById('qlink-question').value = this.textContent;
+        document.getElementById('qlink-question').focus();
+      });
+    });
+  </script>
 </body>
 </html>
